@@ -1,19 +1,24 @@
-function ElectricalAppliance(deviceName, getStatus){
+class ElectricalAppliance {
+    constructor(deviceName, getStatus){
     this.zone = 'kitchen',
     this.color = 'white',
     this.name = deviceName,
     this.getStatus = function(getStatus){
     this.status = getStatus;
     }
-    }
-    function KitchenAppliance(deviceName, devicePower,weight, brand){
-        this.name = deviceName,
+}
+}
+
+class KitchenAppliance extends ElectricalAppliance {
+    constructor (deviceName, devicePower,weight, brand){
+        super(deviceName),
         this.power = devicePower,
         this.weight = weight,
         this.brand = brand
 }
+}
 
-    KitchenAppliance.prototype = new ElectricalAppliance();
+    KitchenAppliance.prototype = new ElectricalAppliance()
 
     const firstAppliance = new KitchenAppliance('teapot', 550, 70, 'philips');
     const secondAppliance = new KitchenAppliance('coffeemaker', 900, 10, 'lg');
